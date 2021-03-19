@@ -1,0 +1,10 @@
+-Cần tạo database trong sql server = file tntt.sql.
+
+-Cần sửa biến đường dẫn sql trong file DataProvider.cs (biến conStr) theo tên SqlServer trước khi chạy chương trình.
+
+-Tài khoản đăng nhập:
+tk: admin,	mk:1,	quyền: admin
+tk: giangvien,	mk:2,	quyền: giảng viên
+tk: sinhvien,	mk:3,	quyền: sinh viên
+
+Hiện nay em mới chỉ xử lý trang đăng nhập, mấy trang còn lại chỉ là dựng giao diện ạ.

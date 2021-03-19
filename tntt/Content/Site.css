@@ -1,0 +1,105 @@
+﻿@import "Common.css";
+
+body {
+    background: url('bg.jpg');
+    background-size: cover;
+}
+.topnav {
+    overflow: hidden;
+    background-color: #fff;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: .5rem;
+    border-bottom-left-radius: .35rem;
+    border-bottom-right-radius: .35rem;
+}
+
+.topnav a {
+    float: left;
+    text-align: center;
+    padding: .5rem 1rem;
+    margin-right: .5rem;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: .35rem;
+    transition: .25s;
+}
+
+.topnav a:last-child {
+    margin-right: 0px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.card-sm {
+    max-width: 400px;
+}
+
+.card-md {
+    max-width: 800px;
+}
+.style-input-group {
+    position: relative;
+    border-bottom: 2px solid #ddd;
+}
+
+.style-input-group:first-child {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.style-input-group:last-child {
+    margin-top: 30px;
+}
+
+.style-input-group input {
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 1rem;
+    color: #555;
+}
+
+.style-input-group label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #aaa;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 1rem;
+    transition: .25s;
+}
+
+.style-input-group span::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #007bff;
+    transition: .25s;
+}
+
+.style-input-group input:focus ~ label,
+.input-valid {
+    top: -5px !important;
+    color: #007bff !important;
+    font-size: .8rem !important;
+}
+
+.style-input-group input:focus ~ span::before,
+.span-valid::before {
+    width: 100% !important;
+}
