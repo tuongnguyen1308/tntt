@@ -11,7 +11,7 @@ namespace tntt
     {
         #region Parameters
         private static DataProvider instance;
-        private string conStr = @"Data Source=DESKTOP-8SHMVDR\SQLEXPRESS;Initial Catalog=tntt;Integrated Security=True";
+        public string conStr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=tntt;Integrated Security=True";
         #endregion
         #region Initializations
         internal static DataProvider Instance { get => instance != null ? instance : new DataProvider(); private set => instance = value; }

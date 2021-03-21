@@ -14,7 +14,7 @@ CREATE TABLE [tbl_taikhoan] (
 GO
 
 CREATE TABLE [dm_mon] (
-  [PK_sMaMon] nvarchar(50) PRIMARY KEY IDENTITY(1, 1),
+  [PK_sMaMon] int PRIMARY KEY IDENTITY(1, 1),
   [sTenMon] nvarchar(50)
 )
 GO

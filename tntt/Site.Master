@@ -38,7 +38,7 @@
             </Scripts>
         </asp:ScriptManager>
 		<div class="topnav">
-			<a class="active" runat="server" href="~/">Trắc nghiệm trực tuyến</a>
+			<a class="active" runat="server" href="~/">Trang chủ</a>
             <% if (currentUser != null)
                 {
                     switch (currentUser.maQ)
@@ -46,13 +46,11 @@
                         case 1:
                             %>
                             <a runat="server" href="~/QuanLyGiangVien">Quản lý giảng viên</a>
-                            <%--<a runat="server" href="~/QuanLyDotThi">Quản lý đợt thi</a>--%>
                             <a runat="server" href="~/QuanLyBaiThi">Quản lý bài thi</a>
                             <%
                             break;
                         case 2:
                             %>
-                            <%--<a runat="server" href="~/QuanLyDotThi">Quản lý đợt thi</a>--%>
                             <a runat="server" href="~/QuanLyBaiThi">Quản lý bài thi</a>
                             <%
                             break;
@@ -71,13 +69,7 @@
         <div class="container">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-			<br>
-            <%--<hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Xây dựng và Phát triển bởi nhóm 1 - LTWNC</p>
-            </footer>--%>
         </div>
-
     </form>
 </body>
 </html>

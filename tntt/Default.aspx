@@ -31,7 +31,7 @@
                             break;
                         case 3:
                             %>
-                            <a runat="server" href="~/VaoThi">Vào Thi</a>
+                            <a runat="server" href="~/MonThi">Môn thi</a>
                             <%
                             break;
                         default:
