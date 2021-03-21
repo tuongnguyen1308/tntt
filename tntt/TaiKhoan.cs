@@ -9,7 +9,6 @@ namespace tntt
     public class TaiKhoan
     {
         #region Parameters
-        public string ma;
         public string username;
         public string password;
         public string ten;
@@ -21,8 +20,7 @@ namespace tntt
         public TaiKhoan() { }
         public TaiKhoan(DataRow row)
         {
-            this.ma         = row["PK_sMaTK"].ToString();
-            this.username   = row["sUsername"].ToString();
+            this.username   = row["PK_sMaTK"].ToString();
             this.password   = row["sPassword"].ToString();
             this.ten        = row["sTen"].ToString();
             this.maQ        = (int)row["FK_iMaQ"];

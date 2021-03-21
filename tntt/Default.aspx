@@ -8,7 +8,7 @@
 		</div>
 		<div class="card-body text-center">
 			<p>Chào mừng bạn đến với hệ thống thi trắc nghiệm trực tuyến</p>
-			<% if (currentUser == null)
+			<% if (currentUser == null || currentUser.maQ == 0)
                 {%>
 					<p>Vui lòng đăng nhập để sử dụng các chức năng</p>
                 <%}
@@ -19,14 +19,14 @@
                         case 1:
                             %>
                             <a runat="server" href="~/QuanLyGiangVien">Quản lý giảng viên</a><br />
-                            <%--<a runat="server" href="~/QuanLyDotThi">Quản lý đợt thi</a>--%>
-                            <a runat="server" href="~/QuanLyBaiThi">Quản lý bài thi</a>
+                            <a runat="server" href="~/QuanLyMon">Quản lý môn</a><br />
+                            <a runat="server" href="~/QuanLyDotThi">Quản lý đợt thi</a><br />
                             <%
                             break;
                         case 2:
                             %>
-                            <%--<a runat="server" href="~/QuanLyDotThi">Quản lý đợt thi</a>--%>
-                            <a runat="server" href="~/QuanLyBaiThi">Quản lý bài thi</a>
+                            <a runat="server" href="~/QuanLyMon">Quản lý môn</a><br />
+                            <a runat="server" href="~/QuanLyDotThi">Quản lý đợt thi</a><br />
                             <%
                             break;
                         case 3:
@@ -40,7 +40,7 @@
                 }
 			%>
 		</div>
-		<% if (currentUser == null)
+		<% if (currentUser == null || currentUser.maQ == 0)
             {%>
 			<div class="card-footer text-center">
 				<a href="DangNhap.aspx" class="btn btn-primary">Đăng nhập</a>

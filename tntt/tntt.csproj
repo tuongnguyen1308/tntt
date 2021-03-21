@@ -148,9 +148,12 @@
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
     <Content Include="VaoThi.aspx" />
+    <Content Include="QuanLyMon.aspx" />
+    <Content Include="QuanLyDotThi.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="MD5.cs" />
     <Compile Include="QuanLyGiangVien.aspx.cs">
       <DependentUpon>QuanLyGiangVien.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -213,6 +216,20 @@
     </Compile>
     <Compile Include="VaoThi.aspx.designer.cs">
       <DependentUpon>VaoThi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyMon.aspx.cs">
+      <DependentUpon>QuanLyMon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuanLyMon.aspx.designer.cs">
+      <DependentUpon>QuanLyMon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyDotThi.aspx.cs">
+      <DependentUpon>QuanLyDotThi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuanLyDotThi.aspx.designer.cs">
+      <DependentUpon>QuanLyDotThi.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

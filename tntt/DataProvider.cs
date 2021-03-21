@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace tntt
     {
         #region Parameters
         private static DataProvider instance;
-        private string conStr = @"Data Source=DESKTOP-8SHMVDR\SQLEXPRESS;Initial Catalog=tntt;Integrated Security=True";
+        private string conStr = ConfigurationManager.ConnectionStrings["conString"].ConnectionString;
         #endregion
         #region Initializations
         internal static DataProvider Instance { get => instance != null ? instance : new DataProvider(); private set => instance = value; }

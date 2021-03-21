@@ -11,7 +11,7 @@ namespace tntt
 {
 
 
-    public partial class QuanLyGiangVien
+    public partial class WebForm2
     {
 
         /// <summary>
@@ -24,67 +24,121 @@ namespace tntt
         protected global::System.Web.UI.WebControls.Literal ltr_error;
 
         /// <summary>
-        /// gv_list_gv control.
+        /// gv_list_dt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gv_list_gv;
+        protected global::System.Web.UI.WebControls.GridView gv_list_dt;
 
         /// <summary>
-        /// tb_tgv control.
+        /// tb_ki control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_tgv;
+        protected global::System.Web.UI.WebControls.TextBox tb_ki;
 
         /// <summary>
-        /// rfv_tgv control.
+        /// rfv_ki control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_tgv;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_ki;
 
         /// <summary>
-        /// tb_un control.
+        /// tb_nbd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_un;
+        protected global::System.Web.UI.WebControls.TextBox tb_nbd;
 
         /// <summary>
-        /// rfv_un control.
+        /// rfv_nbd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_un;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_nbd;
 
         /// <summary>
-        /// tb_pw control.
+        /// tb_nkt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_pw;
+        protected global::System.Web.UI.WebControls.TextBox tb_nkt;
 
         /// <summary>
-        /// rfv_pw control.
+        /// rfv_nkt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_pw;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_nkt;
+
+        /// <summary>
+        /// ddl_mon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_mon;
+
+        /// <summary>
+        /// rfv_mon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_mon;
+
+        /// <summary>
+        /// tb_sch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tb_sch;
+
+        /// <summary>
+        /// rfv_sch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_sch;
+
+        /// <summary>
+        /// tb_tg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tb_tg;
+
+        /// <summary>
+        /// rfv_tg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_tg;
 
         /// <summary>
         /// btn_add control.

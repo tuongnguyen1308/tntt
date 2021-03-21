@@ -2,58 +2,42 @@
 <%@ MasterType VirtualPath="~/Site.Master" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-	<div class="card multi-card card-md mt-5">
+	<div class="card multi-card card-lg mt-5">
 		<div class="card-header">
 			Danh sách giảng viên
 		</div>
 		<div class="card-body">
-			<table class="table text-center" width="100%" border="1">
-				<thead class="thead-inverse">
-					<tr>
-						<th width="10%">STT</th>
-						<th width="70%">Tên Giảng viên</th>
-						<th width="20%">Tác vụ</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>1</td>
-							<td>Thái Thanh Tùng</td>
-							<td>
-								<button type="button" name="" class="btn btn-primary">Sửa</button> 
-								<button type="button" name="" class="btn btn-danger">Xoá</button>
-							</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td>Trần Tiến Dũng</td>
-							<td>
-								<button type="button" name="" class="btn btn-primary">Sửa</button> 
-								<button type="button" name="" class="btn btn-danger">Xoá</button>
-							</td>
-						</tr>
-					</tbody>
-			</table>
+            <asp:Literal ID="ltr_error" runat="server"></asp:Literal>
+            <asp:GridView ID="gv_list_gv" runat="server" CssClass="table text-center w-100" AutoGenerateColumns="false" OnRowEditing="gv_list_gv_RowEditing" OnRowUpdating="gv_list_gv_RowUpdating" OnRowCancelingEdit="gv_list_gv_RowCancelingEdit">
+				<Columns>
+					<asp:BoundField DataField="PK_sMaTK" HeaderText="Tên đăng nhập" ReadOnly="true" />
+					<asp:BoundField DataField="sTen" HeaderText="Họ tên" />
+					<asp:CommandField ShowEditButton="true" EditText="Sửa" UpdateText="Cập nhật" CancelText="Huỷ" />
+				</Columns>
+            </asp:GridView>
 		</div>
 	</div>
-	<div class="card multi-card card-sm mt-3">
+	<div class="card multi-card card-lg mt-3">
 		<div class="card-header">
 			Thêm giảng viên
 		</div>
 		<div class="card-body">
 			<div class="form-group">
 			  <label for="sTen">Tên giảng viên</label>
-			  <input type="text" class="form-control" name="sTen" id="sTen" aria-describedby="helpId" placeholder="Tên giảng viên">
+                <asp:TextBox ID="tb_tgv" runat="server" CssClass="form-control"></asp:TextBox>
+			<asp:RequiredFieldValidator ID="rfv_tgv" ControlToValidate="tb_tgv" runat="server" Display="Dynamic" CssClass="font-italic text-danger" ErrorMessage="Tên giảng viên không được để trống!<br />" ValidationGroup="group_add"></asp:RequiredFieldValidator>
 			</div>
 			<div class="form-group">
 			  <label for="sUsername">Tên Tài khoản</label>
-			  <input type="text" class="form-control" name="sUsername" id="sUsername" aria-describedby="helpId" placeholder="Tên Tài khoản">
+                <asp:TextBox ID="tb_un" runat="server" CssClass="form-control"></asp:TextBox>
+			<asp:RequiredFieldValidator ID="rfv_un" ControlToValidate="tb_un" runat="server" Display="Dynamic" CssClass="font-italic text-danger" ErrorMessage="Tên tài khoản không được để trống!<br />" ValidationGroup="group_add"></asp:RequiredFieldValidator>
 			</div>
 			<div class="form-group">
 			  <label for="sPassword">Mật khẩu</label>
-			  <input type="password" class="form-control" name="sPassword" id="sPassword" aria-describedby="helpId" placeholder="Mật khẩu">
+                <asp:TextBox ID="tb_pw" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+				<asp:RequiredFieldValidator ID="rfv_pw" ControlToValidate="tb_pw" runat="server" Display="Dynamic" CssClass="font-italic text-danger" ErrorMessage="Mật khẩu không được để trống!<br />" ValidationGroup="group_add"></asp:RequiredFieldValidator>
 			</div>
-			<button type="button" name="btn-save" class="btn btn-primary" btn-lg btn-block">Lưu</button>
+			<asp:Button ID="btn_add" runat="server" Text="Thêm giảng viên" CssClass="btn btn-primary" OnClick="btn_add_Click" />
 		</div>
 	</div>
 
