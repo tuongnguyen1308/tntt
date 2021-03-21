@@ -66,18 +66,9 @@ namespace tntt
         }
         private string LoadMon()
         {
-            string conStr = DataProvider.Instance.conStr;
-            DataTable dt = new DataTable();
-            using (SqlConnection sqlCon = new SqlConnection(conStr))
-            {
-                sqlCon.Open();
-                SqlCommand cmd = new SqlCommand("sp_get_namthi", sqlCon);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@nam", SqlDbType.Int).Value = DateTime.Now.Year;
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                sqlCon.Close();
-                sda.Fill(dt);
-            }
+            var lstParameter = new List<KeyValuePair<string, string>>();
+            lstParameter.Add(new KeyValuePair<string, string>("@nam", DateTime.Now.Year.ToString()));
+            DataTable dt = DataProvider.Instance.ExecuteQuery("sp_get_monthi", lstParameter);
             string table = "";
             int i = 1;
             foreach (DataRow row in dt.Rows)
