@@ -46,24 +46,36 @@
                         case 1:
                             %>
                             <a runat="server" href="~/QuanLyGiangVien">Quản lý giảng viên</a>
+<<<<<<< HEAD
                             <a runat="server" href="~/QuanLyBaiThi">Quản lý bài thi</a>
+=======
+                            <a runat="server" href="~/QuanLyMon">Quản lý môn</a>
+                            <a runat="server" href="~/QuanLyDotThi">Quản lý đợt thi</a>
+			                <a class="float-right" runat="server" href="~/DangNhap">Đăng xuất</a>
+>>>>>>> 28ceed97419a67aaa3768966e06fcfad3cbc0909
                             <%
                             break;
                         case 2:
                             %>
+<<<<<<< HEAD
                             <a runat="server" href="~/QuanLyBaiThi">Quản lý bài thi</a>
+=======
+                            <a runat="server" href="~/QuanLyMon">Quản lý môn</a><br />
+                            <a runat="server" href="~/QuanLyDotThi">Quản lý đợt thi</a>
+			                <a class="float-right" runat="server" href="~/DangNhap">Đăng xuất</a>
+>>>>>>> 28ceed97419a67aaa3768966e06fcfad3cbc0909
                             <%
                             break;
                         case 3:
                             %>
                             <a runat="server" href="~/VaoThi">Vào Thi</a>
+			                <a class="float-right" runat="server" href="~/DangNhap">Đăng xuất</a>
                             <%
                             break;
                         default:
                             break;
                     }
                     %>
-			    <a class="float-right" runat="server" href="~/DangNhap">Đăng xuất</a>
                 <%} %>
 		</div>
         <div class="container">

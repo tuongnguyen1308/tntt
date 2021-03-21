@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,7 +12,11 @@ namespace tntt
     {
         #region Parameters
         private static DataProvider instance;
+<<<<<<< HEAD
         public string conStr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=tntt;Integrated Security=True";
+=======
+        private string conStr = ConfigurationManager.ConnectionStrings["conString"].ConnectionString;
+>>>>>>> 28ceed97419a67aaa3768966e06fcfad3cbc0909
         #endregion
         #region Initializations
         internal static DataProvider Instance { get => instance != null ? instance : new DataProvider(); private set => instance = value; }
