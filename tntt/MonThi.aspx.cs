@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,10 +8,10 @@ using System.Web.UI.WebControls;
 
 namespace tntt
 {
-    public partial class VaoThi : System.Web.UI.Page
+    public partial class MonThi : Page
     {
         public TaiKhoan currentUser = new TaiKhoan();
-        public String dsMon;
+        public string dsMon;
         protected void Page_Load(object sender, EventArgs e)
         {
             Master.currentUser = (TaiKhoan)Session["currentUser"];
@@ -39,9 +38,11 @@ namespace tntt
         }
         private void GetMon(string nam, string ky)
         {
-            var lstParameter = new List<KeyValuePair<string, string>>();
-            lstParameter.Add(new KeyValuePair<string, string>("@nam", nam));
-            lstParameter.Add(new KeyValuePair<string, string>("@ki", ky));
+            var lstParameter = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("@nam", nam),
+                new KeyValuePair<string, string>("@ki", ky)
+            };
             DataTable dt = DataProvider.Instance.ExecuteQuery("sp_get_dotthi", lstParameter);
             if(dt.Rows.Count > 0)
             {
@@ -54,7 +55,7 @@ namespace tntt
                     table += "<td>" + row["sTenMon"] + "</td>";
                     table += "<td>" + row["dNgayBD"] + "</td>";
                     table += "<td>" + row["dNgayKT"] + "</td>";
-                    table += "<td> <a href='LamBai'>Vào thi</a></td>";
+                    table += "<td> <a href='LamBai?dotthi="+row["PK_sMaDT"]+"'>Vào thi</a></td>";
                     table += "</tr>";
                 }
                 dsMon = table;
@@ -66,9 +67,11 @@ namespace tntt
         }
         private string LoadMon()
         {
-            var lstParameter = new List<KeyValuePair<string, string>>();
-            lstParameter.Add(new KeyValuePair<string, string>("@nam", DateTime.Now.Year.ToString()));
-            DataTable dt = DataProvider.Instance.ExecuteQuery("sp_get_monthi", lstParameter);
+            var lstParameter = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("@nam", DateTime.Now.Year.ToString())
+            };
+            DataTable dt = DataProvider.Instance.ExecuteQuery("sp_get_namthi", lstParameter);
             string table = "";
             int i = 1;
             foreach (DataRow row in dt.Rows)
@@ -78,7 +81,7 @@ namespace tntt
                 table += "<td>" + row["sTenMon"]+"</td>";
                 table += "<td>" + row["dNgayBD"]+"</td>";
                 table += "<td>" + row["dNgayKT"]+"</td>";
-                table += "<td> <a href='LamBai'>Vào thi</a></td>";
+                table += "<td> <a href='LamBai?dotthi=" + row["PK_sMaDT"] + "'>Vào thi</a></td>";
                 table += "</tr>";
             }
             return table;

@@ -1,5 +1,4 @@
-﻿<%@ Page Title="Vào thi" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MonThi.aspx.cs" Inherits="tntt.VaoThi" %>
-<%@ MasterType VirtualPath="~/Site.Master" %>
+﻿<%@ Page Title="Vào thi" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MonThi.aspx.cs" Inherits="tntt.MonThi" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 	<div class="card mb-1">
         <div class="card-header">
