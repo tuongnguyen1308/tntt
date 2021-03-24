@@ -15,26 +15,29 @@
 						</tr>
 					</thead>
 					<tbody>
-						<%int j = 0;%>
 						<%foreach (System.Data.DataRow daRow in dsDapAn.Rows){ %>
 							<%if(Equals(daRow["FK_sMaCH"],row["PK_iMaCh"])){%>
 								<tr>
-									<td><label><input name='<%Response.Write(row["PK_iMaCH"]);%>' type="radio" value='<%Response.Write(daRow["PK_iMaDA"]);%>'> <% Response.Write(daRow["sDapAn"]);%></label></td>
+									<td>
+										<label class="custom-control-label">
+											<input required class="custom-control-input" name='<%Response.Write(row["PK_iMaCH"]);%>' type="radio" value='<%Response.Write(daRow["PK_iMaDA"]);%>'> <% Response.Write(daRow["sDapAn"]);%>
+										</label>
+									</td>
 								</tr>
 							<%}%>
 						<%}%>
 					</tbody>
 				</table>
 				<%} %>
-				<button type="button" name="nopbai" class="btn btn-primary">Nộp bài</button> 
+				<button type="submit" name="nopbai" class="btn btn-primary" value='<%Response.Write(Mabai);%>'>Nộp bài</button> 
 			</div>
 		</div>
 		<div class="card multi-card card-sm" style="position: sticky; top: 0;">
 			<div class="card-header">
-				Tổng quan
+				Danh sách câu hỏi
 			</div>
 			<div class="card-body">
-				<table width="100%" border="1">
+				<table border="1">
 					<% i = 1; %>
 					<tr>
 						<% foreach (System.Data.DataRow row in dsCauHoi.Rows){%>

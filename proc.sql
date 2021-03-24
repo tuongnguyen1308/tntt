@@ -48,13 +48,6 @@ begin
 	inner join tbl_de_cauhoi as dch on dch.FK_iMaCH = ch.PK_iMaCH
 	where FK_sMaD = @de
 end;
-create proc sp_get_desv @masv nvarchar(50),@dotthi nvarchar(50)
-as
-begin
-	select tbl_de.* from tbl_de
-	inner join tbl_bailam as bl on PK_sMaD = FK_iMaD
-	where FK_sMaSV = @masv and FK_iMaDT = @dotthi
-end;
 create proc sp_lambai @made nvarchar(50),@masv nvarchar(50),@tgbd date
 as
 begin
@@ -65,3 +58,19 @@ begin
      VALUES
            (@made,@masv,@tgbd)
 end
+create type tbl_ctbl as table(
+	FK_iMaDA int null,
+	FK_iMaBL int null
+)
+create proc sp_luubailam @tbl_ctbl [dbo].[tbl_ctbl] readonly
+as
+begin
+	insert into tbl_ctbl select FK_iMaDA,FK_iMaBL from @tbl_ctbl
+end;
+
+create proc sp_checkBai @mabai int
+as
+begin
+	select * from tbl_ctbl
+	where FK_iMaBL = @mabai
+end;

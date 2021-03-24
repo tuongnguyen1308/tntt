@@ -62,7 +62,7 @@
                             break;
                         case 3:
                             %>
-                            <a runat="server" href="~/VaoThi">Vào Thi</a>
+                            <a runat="server" href="~/MonThi">Vào Thi</a>
 			                <a class="float-right" runat="server" href="~/DangNhap">Đăng xuất</a>
                             <%
                             break;

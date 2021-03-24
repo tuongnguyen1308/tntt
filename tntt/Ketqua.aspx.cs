@@ -8,14 +8,14 @@ using System.Web.UI.WebControls;
 
 namespace tntt
 {
-    public partial class LamBai : Page
+    public partial class Ketqua : System.Web.UI.Page
     {
         public string Made;
-        public string MaDot;
         public string Mabai;
         public string dotthi;
         public DataTable dsCauHoi = new DataTable();
         public DataTable dsDapAn = new DataTable();
+        public DataTable dsTrue = new DataTable();
         public TaiKhoan currentUser = new TaiKhoan();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,16 +24,12 @@ namespace tntt
             if(currentUser == null || currentUser.maQ != 3)
                 Response.Redirect("Default");
             dotthi = Request.QueryString.Get("dotthi");
-            if (GetBaiLam() == 0)GetRandDe();
-            if(GetKQBai()) Response.Redirect("Ketqua?mabai="+Mabai+"dotthi="+dotthi);
+            GetBaiLam();
             GetCauHoi();
             GetDapAn();
-            if(IsPostBack){
-                LuuBaiLam();
-            }
+            GetKQBai();
         }
-
-        private int GetBaiLam()
+        private void GetBaiLam()
         {
             var lstParameter = new List<KeyValuePair<string, string>>
             {
@@ -46,7 +42,6 @@ namespace tntt
                     Made = dr["PK_sMaD"].ToString();
                     Mabai = dr["PK_iMaBL"].ToString();
                 }
-            return dt.Rows.Count;
         }
 
         private void GetCauHoi()
@@ -68,52 +63,14 @@ namespace tntt
             DataTable dt = DataProvider.Instance.ExecuteQuery("sp_get_dapan",lstParameter);
             dsDapAn = dt;
         }
-
-        private void GetRandDe()
-        {
-            var lstParameter = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("@dotthi", dotthi)
-            };
-            DataTable dt = DataProvider.Instance.ExecuteQuery("sp_get_rande", lstParameter);
-            foreach(DataRow row  in dt.Rows)
-            {
-                Made = row["PK_sMaD"].ToString();
-                MaDot = row["FK_iMaDT"].ToString();
-            };
-            lstParameter = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("@made",Made),
-                new KeyValuePair<string, string>("@masv",currentUser.username),
-                new KeyValuePair<string, string>("@tgbd",DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
-            };
-            DataProvider.Instance.ExecuteQuery("sp_lambai",lstParameter);
-        }
-        private bool GetKQBai()
+        private void GetKQBai()
         {
             var lstParameter = new List<KeyValuePair<string, string>>
             {
                 new KeyValuePair<string, string>("@mabai",Mabai),
             };
             DataTable dt = DataProvider.Instance.ExecuteQuery("sp_checkBai", lstParameter);
-            if(dt.Rows.Count > 0) return true;
-            return false;
-        }
-        private void LuuBaiLam(){
-            DataTable dt = new DataTable();
-            dt.Columns.Add(new DataColumn("FK_iMaDA"));
-            dt.Columns.Add(new DataColumn("FK_iMaBL"));
-            foreach(DataRow row in dsCauHoi.Rows){
-                dt.Rows.Add(Request.Form[row["PK_iMaCH"].ToString()].ToString(),Mabai);
-            }
-            System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(DataProvider.Instance.conStr);
-            System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("sp_luubailam",con);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@tbl_ctbl",dt);
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
-            Response.Redirect("Ketqua?mabai="+Mabai+"&dotthi="+dotthi);
+            dsTrue = dt;
         }
     }
 }
