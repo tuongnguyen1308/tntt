@@ -68,7 +68,15 @@ begin
 	insert into tbl_ctbl select FK_iMaDA,FK_iMaBL from @tbl_ctbl
 end;
 
-create proc sp_checkBai @mabai int
+create proc sp_chitietbai @mabai nvarchar(50)
+as
+begin
+	select * from tbl_dapan
+	left join tbl_ctbl on
+	PK_iMaDA = FK_iMaDA
+	where FK_iMaBL = @mabai or FK_iMaBL is null
+end;
+create proc sp_checkBai @mabai nvarchar(50)
 as
 begin
 	select * from tbl_ctbl

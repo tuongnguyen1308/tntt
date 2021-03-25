@@ -23,9 +23,9 @@ namespace tntt
             currentUser = (TaiKhoan)Session["currentUser"];
             if(currentUser == null || currentUser.maQ != 3)
                 Response.Redirect("Default");
-            dotthi = Request.QueryString.Get("dotthi");
+            dotthi = Request.QueryString.Get("dotthi").ToString();
             if (GetBaiLam() == 0)GetRandDe();
-            if(GetKQBai()) Response.Redirect("Ketqua?mabai="+Mabai+"dotthi="+dotthi);
+            if(GetKQBai()) Response.Redirect("Ketqua?mabai="+Mabai+"&dotthi="+dotthi);
             GetCauHoi();
             GetDapAn();
             if(IsPostBack){

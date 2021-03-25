@@ -15,7 +15,6 @@ namespace tntt
         public string dotthi;
         public DataTable dsCauHoi = new DataTable();
         public DataTable dsDapAn = new DataTable();
-        public DataTable dsTrue = new DataTable();
         public TaiKhoan currentUser = new TaiKhoan();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,11 +22,9 @@ namespace tntt
             currentUser = (TaiKhoan)Session["currentUser"];
             if(currentUser == null || currentUser.maQ != 3)
                 Response.Redirect("Default");
-            dotthi = Request.QueryString.Get("dotthi");
+            dotthi = Request.QueryString.Get("dotthi").ToString();
             GetBaiLam();
             GetCauHoi();
-            GetDapAn();
-            GetKQBai();
         }
         private void GetBaiLam()
         {
@@ -42,6 +39,11 @@ namespace tntt
                     Made = dr["PK_sMaD"].ToString();
                     Mabai = dr["PK_iMaBL"].ToString();
                 }
+            lstParameter = new List<KeyValuePair<string,string>>
+            {
+                new KeyValuePair<string, string>("@mabai",Mabai)
+            };
+            dsDapAn = DataProvider.Instance.ExecuteQuery("sp_chitietbai",lstParameter);
         }
 
         private void GetCauHoi()
@@ -52,25 +54,6 @@ namespace tntt
             };
             DataTable dt = DataProvider.Instance.ExecuteQuery("sp_get_cauhoi", lstParameter);
             dsCauHoi = dt;
-        }
-        
-        private void GetDapAn()
-        {
-            var lstParameter = new List<KeyValuePair<string,string>>
-            {
-                new KeyValuePair<string, string>("@de",Made)
-            };
-            DataTable dt = DataProvider.Instance.ExecuteQuery("sp_get_dapan",lstParameter);
-            dsDapAn = dt;
-        }
-        private void GetKQBai()
-        {
-            var lstParameter = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("@mabai",Mabai),
-            };
-            DataTable dt = DataProvider.Instance.ExecuteQuery("sp_checkBai", lstParameter);
-            dsTrue = dt;
         }
     }
 }
