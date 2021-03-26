@@ -9,6 +9,8 @@
 
 namespace tntt
 {
+
+
     public partial class LamBai
     {
         public new tntt.SiteMaster Master

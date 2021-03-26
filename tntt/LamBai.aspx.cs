@@ -14,9 +14,12 @@ namespace tntt
         public string MaDot;
         public string Mabai;
         public string dotthi;
+        static int ss,mm;
         public DataTable dsCauHoi = new DataTable();
         public DataTable dsDapAn = new DataTable();
         public TaiKhoan currentUser = new TaiKhoan();
+        public int tgLamBai;
+        static double TimeAllSecondes=30;
         protected void Page_Load(object sender, EventArgs e)
         {
             Master.currentUser = (TaiKhoan)Session["currentUser"];
@@ -45,6 +48,8 @@ namespace tntt
                 foreach(DataRow dr in dt.Rows){
                     Made = dr["PK_sMaD"].ToString();
                     Mabai = dr["PK_iMaBL"].ToString();
+                    tgLamBai = (int)dr["iThoiGian"];
+                    //TimeAllSecondes = tgLamBai;
                 }
             return dt.Rows.Count;
         }
@@ -79,15 +84,17 @@ namespace tntt
             foreach(DataRow row  in dt.Rows)
             {
                 Made = row["PK_sMaD"].ToString();
-                MaDot = row["FK_iMaDT"].ToString();
+                tgLamBai = (int)row["iThoiGian"];
+                //TimeAllSecondes = tgLamBai;
             };
             lstParameter = new List<KeyValuePair<string, string>>
             {
                 new KeyValuePair<string, string>("@made",Made),
                 new KeyValuePair<string, string>("@masv",currentUser.username),
-                new KeyValuePair<string, string>("@tgbd",DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
+                new KeyValuePair<string, string>("@tgbd",DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"))
             };
             DataProvider.Instance.ExecuteQuery("sp_lambai",lstParameter);
+            GetBaiLam();
         }
         private bool GetKQBai()
         {
@@ -103,13 +110,14 @@ namespace tntt
             DataTable dt = new DataTable();
             dt.Columns.Add(new DataColumn("FK_iMaDA"));
             dt.Columns.Add(new DataColumn("FK_iMaBL"));
-            foreach(DataRow row in dsCauHoi.Rows){
-                dt.Rows.Add(Request.Form[row["PK_iMaCH"].ToString()].ToString(),Mabai);
+            foreach (DataRow row in dsCauHoi.Rows)
+            {
+                dt.Rows.Add(Request.Form[row["PK_iMaCH"].ToString()].ToString(), Mabai);
             }
             System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(DataProvider.Instance.conStr);
-            System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("sp_luubailam",con);
+            System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("sp_luubailam", con);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@tbl_ctbl",dt);
+            cmd.Parameters.AddWithValue("@tbl_ctbl", dt);
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();

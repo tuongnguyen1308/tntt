@@ -17,7 +17,8 @@ end;
 create proc sp_get_rande (@dotthi nvarchar(50))
 as
 begin
-	select top 1 * from tbl_de
+	select top 1 tbl_de.*,tbl_dotthi.iThoiGian from tbl_de
+	inner join tbl_dotthi on FK_iMaDT = PK_sMaDT
 	where FK_iMaDT = @dotthi
 	order by newid()
 end;
@@ -25,9 +26,9 @@ end;
 create proc sp_get_baithi (@masv nvarchar(50), @dotthi nvarchar(50))
 as
 begin
-	select * from tbl_bailam
-	inner join tbl_de
-	on FK_iMaD = PK_sMaD
+	select tbl_bailam.*,tbl_dotthi.iThoiGian,PK_sMaD from tbl_bailam
+	inner join tbl_de on FK_iMaD = PK_sMaD
+	inner join tbl_dotthi on FK_iMaDT = PK_sMaDT
 	where FK_sMaSV = @masv
 	and FK_iMaDT = @dotthi
 end;
@@ -48,7 +49,7 @@ begin
 	inner join tbl_de_cauhoi as dch on dch.FK_iMaCH = ch.PK_iMaCH
 	where FK_sMaD = @de
 end;
-create proc sp_lambai @made nvarchar(50),@masv nvarchar(50),@tgbd date
+create proc sp_lambai @made nvarchar(50),@masv nvarchar(50),@tgbd datetime
 as
 begin
 	INSERT INTO tbl_bailam
@@ -82,3 +83,4 @@ begin
 	select * from tbl_ctbl
 	where FK_iMaBL = @mabai
 end;
+delete tbl_bailam
