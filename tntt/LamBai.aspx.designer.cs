@@ -13,6 +13,7 @@ namespace tntt
 
     public partial class LamBai
     {
+        protected global::System.Web.UI.WebControls.Label Label2;
         public new tntt.SiteMaster Master
         {
             get

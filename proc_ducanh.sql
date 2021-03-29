@@ -84,3 +84,4 @@ begin
 	where FK_iMaBL = @mabai
 end;
 delete tbl_bailam
+delete tbl_ctbl

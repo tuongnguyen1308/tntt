@@ -14,12 +14,12 @@ namespace tntt
         public string MaDot;
         public string Mabai;
         public string dotthi;
-        static int ss,mm;
         public DataTable dsCauHoi = new DataTable();
         public DataTable dsDapAn = new DataTable();
         public TaiKhoan currentUser = new TaiKhoan();
-        public int tgLamBai;
-        static double TimeAllSecondes=30;
+        public double tgLamBai;
+        string startTime;
+        public int TimeLeft;
         protected void Page_Load(object sender, EventArgs e)
         {
             Master.currentUser = (TaiKhoan)Session["currentUser"];
@@ -31,7 +31,9 @@ namespace tntt
             if(GetKQBai()) Response.Redirect("Ketqua?mabai="+Mabai+"&dotthi="+dotthi);
             GetCauHoi();
             GetDapAn();
-            if(IsPostBack){
+            TimeLeft = (int)Convert.ToDateTime(startTime).AddSeconds(tgLamBai).Subtract(DateTime.Now).TotalSeconds;
+            if (IsPostBack)
+            {
                 LuuBaiLam();
             }
         }
@@ -48,8 +50,8 @@ namespace tntt
                 foreach(DataRow dr in dt.Rows){
                     Made = dr["PK_sMaD"].ToString();
                     Mabai = dr["PK_iMaBL"].ToString();
+                    startTime = dr["dThoiGianBD"].ToString();
                     tgLamBai = (int)dr["iThoiGian"];
-                    //TimeAllSecondes = tgLamBai;
                 }
             return dt.Rows.Count;
         }
@@ -85,13 +87,12 @@ namespace tntt
             {
                 Made = row["PK_sMaD"].ToString();
                 tgLamBai = (int)row["iThoiGian"];
-                //TimeAllSecondes = tgLamBai;
             };
             lstParameter = new List<KeyValuePair<string, string>>
             {
                 new KeyValuePair<string, string>("@made",Made),
                 new KeyValuePair<string, string>("@masv",currentUser.username),
-                new KeyValuePair<string, string>("@tgbd",DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"))
+                new KeyValuePair<string, string>("@tgbd",DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
             };
             DataProvider.Instance.ExecuteQuery("sp_lambai",lstParameter);
             GetBaiLam();
@@ -106,13 +107,15 @@ namespace tntt
             if(dt.Rows.Count > 0) return true;
             return false;
         }
-        private void LuuBaiLam(){
+        protected void LuuBaiLam()
+        {
             DataTable dt = new DataTable();
             dt.Columns.Add(new DataColumn("FK_iMaDA"));
             dt.Columns.Add(new DataColumn("FK_iMaBL"));
             foreach (DataRow row in dsCauHoi.Rows)
             {
-                dt.Rows.Add(Request.Form[row["PK_iMaCH"].ToString()].ToString(), Mabai);
+                if (!string.IsNullOrEmpty(Request.Form[row["PK_iMaCH"].ToString()]))
+                    dt.Rows.Add(Request.Form[row["PK_iMaCH"].ToString()].ToString(), Mabai);
             }
             System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(DataProvider.Instance.conStr);
             System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("sp_luubailam", con);
@@ -121,7 +124,28 @@ namespace tntt
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
-            Response.Redirect("Ketqua?mabai="+Mabai+"&dotthi="+dotthi);
+            Response.Redirect("Ketqua?mabai=" + Mabai + "&dotthi=" + dotthi);
         }
+
+        // protected void Timer1_Tick(object sender, EventArgs e)
+        // {
+        //     if (TimeLeft > 0)
+        //     {
+        //         if (SecondLeft > 0)
+        //         {
+        //             SecondLeft = SecondLeft - 1;
+        //         }
+        //         else
+        //         {
+        //             SecondLeft = 60;
+        //             TimeLeft = TimeLeft - 1;
+        //         }
+        //     }
+        //     else
+        //     {
+        //         LuuBaiLam();
+        //     }
+        //     Label2.Text = "  " + TimeLeft + ":" + SecondLeft;
+        // }
     }
 }

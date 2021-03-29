@@ -4,16 +4,16 @@
 		<div class="col-md-9">
 			<div class="card">
 				<div class="card-header">
-					Mã đề thi: <% Response.Write(Made); %>
+					Mã đề thi: <% = Made %>
 				</div>
 				<div class="card-body">
-					<form method="post">
+					<form method="post" ID="auto-submit">
 					<%int i = 1; %>
 					<%foreach (System.Data.DataRow row in dsCauHoi.Rows){ %>
 					<table class="table" width="100%">
 						<thead>
 							<tr>
-								<th id='<% Response.Write(row["PK_iMaCH"]);%>'>Câu <% Response.Write(i++);%>:<%Response.Write(row["sCauHoi"].ToString()); %> </th>
+								<th id='<%= row["PK_iMaCH"] %>'>Câu <%= i++ %>:<%= row["sCauHoi"] %> </th>
 							</tr>
 						</thead>
 						<tbody>
@@ -22,7 +22,7 @@
 									<tr>
 										<td>
 											<label class="custom-control-label">
-												<input required class="custom-control-input" name='<%Response.Write(row["PK_iMaCH"]);%>' type="radio" value='<%Response.Write(daRow["PK_iMaDA"]);%>'> <% Response.Write(daRow["sDapAn"]);%>
+												<input required class="custom-control-input" name='<%= row["PK_iMaCH"] %>' type="radio" value='<%= daRow["PK_iMaDA"] %>'> <% = daRow["sDapAn"] %>
 											</label>
 										</td>
 									</tr>
@@ -31,7 +31,7 @@
 						</tbody>
 					</table>
 					<%} %>
-					<button type="submit" name="nopbai" class="btn btn-primary" value="<%Response.Write(Mabai);%>">Nộp bài</button> 
+					<button type="submit" name="nopbai" class="btn btn-primary" value="<%= Mabai %>">Nộp bài</button> 
 					<span style="color:red;">* LƯU Ý: CHỌN HẾT ĐÁP ÁN TRƯỚC KHI NỘP BÀI</span>
 					</form>
 				</div>
@@ -48,7 +48,7 @@
 						<tr>
 							<% foreach (System.Data.DataRow row in dsCauHoi.Rows){%>
 							<td>
-								<a href='#<% Response.Write(row["PK_iMaCh"]);%>'><% Response.Write(row["PK_iMaCh"]);%> </a>
+								<a href='#<% = row["PK_iMaCH"] %>'><% = row["PK_iMaCH"] %> </a>
 							</td>
 							<% if(i%5 == 0){%></tr><tr><%}%>
 						<%}%>
@@ -64,6 +64,9 @@
 		</div>
 	</div>
 	<script type="text/javascript">
+		function AutoSubmit(form){
+			form.submit();
+		}
 		function startTimer(duration, display) {
 			var timer = duration, minutes, seconds;
 			setInterval(function () {
@@ -72,19 +75,21 @@
 
 				minutes = minutes < 10 ? "0" + minutes : minutes;
 				seconds = seconds < 10 ? "0" + seconds : seconds;
-				var timeleft = minutes + ":" + seconds
-				display.textContent = timeleft;
+				display.textContent = minutes + ":" + seconds;
 
 				if (--timer < 0) {
 					timer = duration;
 				}
 			}, 1000);
 		}
-
-		window.onload = function () {
-			var Minutes = 60 * <%Response.Write(tgLamBai);%>,
+		window.onload = function (){
+			if(<%= TimeLeft%> < 0){
+				var form = document.querySelector('#auto-submit');
+				AutoSubmit(form);
+			}
+				var seconds = <%= TimeLeft%>,
 				display = document.querySelector('#time');
-			startTimer(Minutes, display);
-		};
+			startTimer(seconds, display);
+		}
 	</script>
 </asp:Content>
