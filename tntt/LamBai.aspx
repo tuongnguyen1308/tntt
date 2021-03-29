@@ -7,33 +7,27 @@
 					Mã đề thi: <% = Made %>
 				</div>
 				<div class="card-body">
-					<form method="post" ID="auto-submit">
 					<%int i = 1; %>
-					<%foreach (System.Data.DataRow row in dsCauHoi.Rows){ %>
 					<table class="table" width="100%">
-						<thead>
-							<tr>
-								<th id='<%= row["PK_iMaCH"] %>'>Câu <%= i++ %>:<%= row["sCauHoi"] %> </th>
-							</tr>
-						</thead>
-						<tbody>
-							<%foreach (System.Data.DataRow daRow in dsDapAn.Rows){ %>
-								<%if(Equals(daRow["FK_sMaCH"],row["PK_iMaCh"])){%>
-									<tr>
-										<td>
-											<label class="custom-control-label">
-												<input required class="custom-control-input" name='<%= row["PK_iMaCH"] %>' type="radio" value='<%= daRow["PK_iMaDA"] %>'> <% = daRow["sDapAn"] %>
-											</label>
-										</td>
-									</tr>
-								<%}%>
+					<%foreach (System.Data.DataRow row in dsCauHoi.Rows){ %>
+						<tr>
+							<th id='<%= row["PK_iMaCH"] %>'>Câu <%= i++ %>:<%= row["sCauHoi"] %> </th>
+						</tr>
+						<%foreach (System.Data.DataRow daRow in dsDapAn.Rows){ %>
+							<%if(Equals(daRow["FK_sMaCH"],row["PK_iMaCh"])){%>
+								<tr>
+									<td>
+										<label class="custom-control-label">
+											<input required class="custom-control-input" name='<%= row["PK_iMaCH"] %>' type="radio" value='<%= daRow["PK_iMaDA"] %>'> <% = daRow["sDapAn"] %>
+										</label>
+									</td>
+								</tr>
 							<%}%>
-						</tbody>
-					</table>
+						<%}%>
 					<%} %>
+					</table>
 					<button type="submit" name="nopbai" class="btn btn-primary" value="<%= Mabai %>">Nộp bài</button> 
 					<span style="color:red;">* LƯU Ý: CHỌN HẾT ĐÁP ÁN TRƯỚC KHI NỘP BÀI</span>
-					</form>
 				</div>
 			</div>
 		</div>
@@ -76,19 +70,15 @@
 				minutes = minutes < 10 ? "0" + minutes : minutes;
 				seconds = seconds < 10 ? "0" + seconds : seconds;
 				display.textContent = minutes + ":" + seconds;
-
 				if (--timer < 0) {
-					timer = duration;
+					alert("Đã hết thời gian làm bài, bài làm sẽ được tự động lưu kết quả làm bài");
+					document.forms[0].submit();
 				}
 			}, 1000);
 		}
 		window.onload = function (){
-			if(<%= TimeLeft%> < 0){
-				var form = document.querySelector('#auto-submit');
-				AutoSubmit(form);
-			}
-				var seconds = <%= TimeLeft%>,
-				display = document.querySelector('#time');
+			var seconds = <%= TimeLeft%>,
+			display = document.querySelector('#time');
 			startTimer(seconds, display);
 		}
 	</script>

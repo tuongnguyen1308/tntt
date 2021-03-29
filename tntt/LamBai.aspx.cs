@@ -31,7 +31,7 @@ namespace tntt
             if(GetKQBai()) Response.Redirect("Ketqua?mabai="+Mabai+"&dotthi="+dotthi);
             GetCauHoi();
             GetDapAn();
-            TimeLeft = (int)Convert.ToDateTime(startTime).AddSeconds(tgLamBai).Subtract(DateTime.Now).TotalSeconds;
+            TimeLeft = (int)Convert.ToDateTime(startTime).AddMinutes(tgLamBai).Subtract(DateTime.Now).TotalSeconds;
             if (IsPostBack)
             {
                 LuuBaiLam();
