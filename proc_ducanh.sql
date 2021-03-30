@@ -3,7 +3,7 @@ as
 begin
 	select * from tbl_dotthi
 	inner join dm_mon on tbl_dotthi.FK_sMaMon = dm_mon.PK_sMaMon
-	where iNam = @nam
+	where YEAR(dNgayBD) = @nam
 	and iKi = @ki
 end;
 create proc sp_get_namthi(@nam int)
@@ -11,7 +11,7 @@ as
 begin
 	select PK_sMaMon,sTenMon,tbl_dotthi.* from tbl_dotthi
 	inner join dm_mon on tbl_dotthi.FK_sMaMon = dm_mon.PK_sMaMon
-	where tbl_dotthi.iNam = @nam
+	where YEAR(tbl_dotthi.dNgayBD) = @nam
 end;
 
 create proc sp_get_rande (@dotthi nvarchar(50))
