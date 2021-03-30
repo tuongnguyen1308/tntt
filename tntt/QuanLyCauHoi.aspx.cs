@@ -21,13 +21,12 @@ namespace tntt
             CheckQuyen(currentUser);
             if(IsPostBack){
                 maMon = Request.Form["mon"];
-                getCauHoi();
-                getDapAn();
-                ;
                 if(add_cau.Text != "")
                 {
                     setCauHoi();
                 }
+                getCauHoi();
+                getDapAn();
             }   
             LoadMon();
         }
@@ -109,15 +108,6 @@ namespace tntt
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
-            add_cau.Text = "";
-            cau1.Text = "";
-            cau2.Text = "";
-            cau3.Text = "";
-            cau4.Text = "";
-            dapan1.Checked = false;
-            dapan2.Checked = false;
-            dapan3.Checked = false;
-            dapan4.Checked = false;
         }
     }
 }
