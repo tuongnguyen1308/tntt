@@ -11,15 +11,8 @@ namespace tntt
 {
 
 
-    public partial class VaoThi
+    public partial class MonThi
     {
-
-        /// <summary>
-        /// Master property.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated property.
-        /// </remarks>
         public new tntt.SiteMaster Master
         {
             get

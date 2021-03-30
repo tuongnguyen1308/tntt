@@ -1,0 +1,8 @@
+{
+    "css.styleSheets": [
+    
+    ],
+    "html.format.contentUnformatted": "pre,code,textarea",
+    "html.format.endWithNewline": true,
+    "html.format.indentInnerHtml": true
+}

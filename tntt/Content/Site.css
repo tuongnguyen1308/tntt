@@ -1,9 +1,9 @@
 ﻿@import "Common.css";
-
 body {
     background: url('bg.jpg');
     background-size: cover;
 }
+
 .topnav {
     overflow: hidden;
     background-color: #fff;
@@ -46,6 +46,7 @@ body {
 .card-md {
     max-width: 800px;
 }
+
 .style-input-group {
     position: relative;
     border-bottom: 2px solid #ddd;
@@ -55,6 +56,7 @@ body {
     margin-top: 10px;
     margin-bottom: 30px;
 }
+
 .style-input-group:last-child {
     margin-top: 30px;
 }
@@ -92,14 +94,95 @@ body {
     transition: .25s;
 }
 
-.style-input-group input:focus ~ label,
+.style-input-group input:focus~label,
 .input-valid {
     top: -5px !important;
     color: #007bff !important;
     font-size: .8rem !important;
 }
 
-.style-input-group input:focus ~ span::before,
+.style-input-group input:focus~span::before,
 .span-valid::before {
     width: 100% !important;
+}
+
+.table-bordered {
+    border: 1px solid #dee2e6;
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #dee2e6;
+}
+
+.btn-blue {
+    background-color: #007bff;
+    color: white;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col-md-9,
+.col-md-4,
+.col-md-3 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+@media screen and (min-width: 992px) {
+    .col-md-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    .col-md-4 {
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+    }
+    .col-md-9 {
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+}
+
+.bg-success {
+    background-color: rgb(39, 123, 26);
+    color: white;
+}
+
+.bg-danger {
+    background-color: rgb(216, 0, 0);
+    color: white;
+}
+
+.p-1 {
+    padding: 1rem;
+}
+
+.btn-green {
+    background-color: var(--success);
+    color: white;
+}
+
+.btn-yellow {
+    background-color: var(--warning);
+    color: white;
+}
+
+.btn-red {
+    background-color: var(--danger);
+    color: white;
+}
+
+.form-control-checkbox {
+    clip: rect(0, 0, 0, 0);
+    background-color: rgba(0, 123, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
 }

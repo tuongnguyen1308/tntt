@@ -24,9 +24,11 @@ namespace tntt
 
                 var account = new TaiKhoan();
 
-                var lstParameter = new List<KeyValuePair<string, string>>();
-                lstParameter.Add(new KeyValuePair<string, string>("@un", username));
-                lstParameter.Add(new KeyValuePair<string, string>("@pw", password));
+                var lstParameter = new List<KeyValuePair<string, string>>
+                {
+                    new KeyValuePair<string, string>("@un", username),
+                    new KeyValuePair<string, string>("@pw", password)
+                };
                 DataTable dt = DataProvider.Instance.ExecuteQuery("sp_get_account", lstParameter);
                 if (dt.Rows.Count > 0)
                 {

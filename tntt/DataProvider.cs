@@ -12,7 +12,8 @@ namespace tntt
     {
         #region Parameters
         private static DataProvider instance;
-        private string conStr = ConfigurationManager.ConnectionStrings["conString"].ConnectionString;
+        public string conStr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=tntt;Integrated Security=True";
+        //private string conStr = ConfigurationManager.ConnectionStrings["conString"].ConnectionString;
         #endregion
         #region Initializations
         internal static DataProvider Instance { get => instance != null ? instance : new DataProvider(); private set => instance = value; }

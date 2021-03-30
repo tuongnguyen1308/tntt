@@ -13,7 +13,6 @@ namespace tntt
         public string password;
         public string ten;
         public int maQ;
-        public string tenQ;
 
         #endregion
         #region Initializations
@@ -24,7 +23,6 @@ namespace tntt
             this.password   = row["sPassword"].ToString();
             this.ten        = row["sTen"].ToString();
             this.maQ        = (int)row["FK_iMaQ"];
-            this.tenQ       = row["sTenQ"].ToString();
         }
         #endregion
     }

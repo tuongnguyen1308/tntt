@@ -38,7 +38,7 @@
             </Scripts>
         </asp:ScriptManager>
 		<div class="topnav">
-			<a class="active" runat="server" href="~/">Trắc nghiệm trực tuyến</a>
+			<a class="active" runat="server" href="~/">Trang chủ</a>
             <% if (currentUser != null)
                 {
                     switch (currentUser.maQ)
@@ -46,21 +46,25 @@
                         case 1:
                             %>
                             <a runat="server" href="~/QuanLyGiangVien">Quản lý giảng viên</a>
+                            <a runat="server" href="~/QuanLyBaiThi">Quản lý bài thi</a>
                             <a runat="server" href="~/QuanLyMon">Quản lý môn</a>
                             <a runat="server" href="~/QuanLyDotThi">Quản lý đợt thi</a>
+                            <a runat="server" href="~/QuanLyCauHoi">Quản lý câu hỏi</a>
 			                <a class="float-right" runat="server" href="~/DangNhap">Đăng xuất</a>
                             <%
                             break;
                         case 2:
                             %>
-                            <a runat="server" href="~/QuanLyMon">Quản lý môn</a><br />
+                            <a runat="server" href="~/QuanLyBaiThi">Quản lý bài thi</a>
+                            <a runat="server" href="~/QuanLyMon">Quản lý môn</a>
                             <a runat="server" href="~/QuanLyDotThi">Quản lý đợt thi</a>
+                            <a runat="server" href="~/QuanLyCauHoi">Quản lý câu hỏi</a>
 			                <a class="float-right" runat="server" href="~/DangNhap">Đăng xuất</a>
                             <%
                             break;
                         case 3:
                             %>
-                            <a runat="server" href="~/VaoThi">Vào Thi</a>
+                            <a runat="server" href="~/MonThi">Vào Thi</a>
 			                <a class="float-right" runat="server" href="~/DangNhap">Đăng xuất</a>
                             <%
                             break;
@@ -73,13 +77,7 @@
         <div class="container">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-			<br>
-            <%--<hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Xây dựng và Phát triển bởi nhóm 1 - LTWNC</p>
-            </footer>--%>
         </div>
-
     </form>
 </body>
 </html>
