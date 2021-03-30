@@ -107,6 +107,7 @@
   <ItemGroup>
     <Content Include="Content\normalize.css" />
     <Content Include="Ketqua.aspx" />
+    <Content Include="QuanLyCauHoi.aspx" />
     <Content Include="QuanLyGiangVien.aspx" />
     <Content Include="QuanLyBaiThi.aspx" />
     <Content Include="Content\bg.jpg" />
@@ -163,6 +164,13 @@
       <DependentUpon>Ketqua.aspx</DependentUpon>
     </Compile>
     <Compile Include="MD5.cs" />
+    <Compile Include="QuanLyCauHoi.aspx.cs">
+      <DependentUpon>QuanLyCauHoi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuanLyCauHoi.aspx.designer.cs">
+      <DependentUpon>QuanLyCauHoi.aspx</DependentUpon>
+    </Compile>
     <Compile Include="QuanLyGiangVien.aspx.cs">
       <DependentUpon>QuanLyGiangVien.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
