@@ -11,26 +11,26 @@ namespace tntt
 {
 
 
-    public partial class QuanLyMon
+    public partial class QuanLyDe
     {
 
         /// <summary>
-        /// tb_ten control.
+        /// ddl_dotthi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_ten;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_dotthi;
 
         /// <summary>
-        /// rfv_ten control.
+        /// rfv_dotthi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_ten;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_dotthi;
 
         /// <summary>
         /// btn_add control.
@@ -51,13 +51,13 @@ namespace tntt
         protected global::System.Web.UI.WebControls.Literal ltr_error;
 
         /// <summary>
-        /// gv_list_mon control.
+        /// gv_list_dotthi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gv_list_mon;
+        protected global::System.Web.UI.WebControls.GridView gv_list_dotthi;
 
         /// <summary>
         /// Master property.

@@ -153,6 +153,7 @@
     <Content Include="MonThi.aspx" />
     <Content Include="QuanLyMon.aspx" />
     <Content Include="QuanLyDotThi.aspx" />
+    <Content Include="QuanLyDe.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -254,6 +255,13 @@
     </Compile>
     <Compile Include="QuanLyDotThi.aspx.designer.cs">
       <DependentUpon>QuanLyDotThi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyDe.aspx.cs">
+      <DependentUpon>QuanLyDe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuanLyDe.aspx.designer.cs">
+      <DependentUpon>QuanLyDe.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
