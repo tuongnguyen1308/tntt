@@ -12,7 +12,7 @@ namespace tntt
     {
         #region Parameters
         private static DataProvider instance;
-        public string conStr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=tntt;Integrated Security=True";
+        public string conStr = @"Data Source=DESKTOP-8SHMVDR\SQLEXPRESS;Initial Catalog=tntt;Integrated Security=True";
         //private string conStr = ConfigurationManager.ConnectionStrings["conString"].ConnectionString;
         #endregion
         #region Initializations
