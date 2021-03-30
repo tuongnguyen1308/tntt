@@ -70,11 +70,11 @@
 				minutes = minutes < 10 ? "0" + minutes : minutes;
 				seconds = seconds < 10 ? "0" + seconds : seconds;
 				display.textContent = minutes + ":" + seconds;
-				if (--timer < 0) {
-					alert("Đã hết thời gian làm bài, bài làm sẽ được tự động lưu kết quả làm bài");
-					document.forms[0].submit();
-				}
 			}, 1000);
+			if (--timer < 0) {
+				alert("Đã hết thời gian làm bài, bài làm sẽ được tự động lưu kết quả làm bài");
+				document.forms[0].submit();
+			}
 		}
 		window.onload = function (){
 			var seconds = <%= TimeLeft%>,
