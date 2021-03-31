@@ -42,7 +42,7 @@
 						<tr>
 							<% foreach (System.Data.DataRow row in dsCauHoi.Rows){%>
 							<td>
-								<a href='#<% = row["PK_iMaCH"] %>'><% = row["PK_iMaCH"] %> </a>
+								<a href='#<% = row["PK_iMaCH"] %>'><% = i++ %> </a>
 							</td>
 							<% if(i%5 == 0){%></tr><tr><%}%>
 						<%}%>
