@@ -51,12 +51,12 @@
                     Danh sách câu hỏi
                 </div>
                 <div class="card-body">
-                    <table border="1">
+                    <table border="1" width="100%">
                         <% i = 1; %>
                         <tr>
                             <% foreach (System.Data.DataRow row in dsCauHoi.Rows){%>
                             <td>
-                                <a href='#<% Response.Write(row["PK_iMaCh"]);%>'><% Response.Write(row["PK_iMaCh"]);%> </a>
+                                <a href='#<% Response.Write(row["PK_iMaCh"]);%>'><% = i++ %> </a>
                             </td>
                             <% if(i%5 == 0){%></tr><tr><%}%>
                         <%}%>

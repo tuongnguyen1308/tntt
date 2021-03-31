@@ -37,12 +37,12 @@
 					Danh sách câu hỏi
 				</div>
 				<div class="card-body">
-					<table border="1">
+					<table border="1" width="100%">
 						<% i = 1; %>
 						<tr>
 							<% foreach (System.Data.DataRow row in dsCauHoi.Rows){%>
 							<td>
-								<a href='#<% = row["PK_iMaCH"] %>'><% = row["PK_iMaCH"] %> </a>
+								<a href='#<% = row["PK_iMaCH"] %>'><% = i++ %> </a>
 							</td>
 							<% if(i%5 == 0){%></tr><tr><%}%>
 						<%}%>
@@ -70,11 +70,12 @@
 				minutes = minutes < 10 ? "0" + minutes : minutes;
 				seconds = seconds < 10 ? "0" + seconds : seconds;
 				display.textContent = minutes + ":" + seconds;
+				if (--timer < 0) {
+					timer = 1;
+					alert("Đã hết thời gian làm bài, bài làm sẽ được tự động lưu kết quả làm bài");
+					AutoSubmit(document.forms[0]);
+				}
 			}, 1000);
-			if (--timer < 0) {
-				alert("Đã hết thời gian làm bài, bài làm sẽ được tự động lưu kết quả làm bài");
-				document.forms[0].submit();
-			}
 		}
 		window.onload = function (){
 			var seconds = <%= TimeLeft%>,
