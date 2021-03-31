@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace tntt
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class QuanLyMon : System.Web.UI.Page
     {
         public TaiKhoan currentUser = new TaiKhoan();
         protected void Page_Load(object sender, EventArgs e)

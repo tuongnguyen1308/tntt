@@ -46,19 +46,21 @@
                         case 1:
                             %>
                             <a runat="server" href="~/QuanLyGiangVien">Quản lý giảng viên</a>
-                            <a runat="server" href="~/QuanLyBaiThi">Quản lý bài thi</a>
                             <a runat="server" href="~/QuanLyMon">Quản lý môn</a>
-                            <a runat="server" href="~/QuanLyDotThi">Quản lý đợt thi</a>
                             <a runat="server" href="~/QuanLyCauHoi">Quản lý câu hỏi</a>
+                            <a runat="server" href="~/QuanLyDe">Quản lý đề</a>
+                            <a runat="server" href="~/QuanLyDotThi">Quản lý đợt thi</a>
+                            <a runat="server" href="~/QuanLyBaiThi">Quản lý bài thi</a>
 			                <a class="float-right" runat="server" href="~/DangNhap">Đăng xuất</a>
                             <%
                             break;
                         case 2:
                             %>
-                            <a runat="server" href="~/QuanLyBaiThi">Quản lý bài thi</a>
                             <a runat="server" href="~/QuanLyMon">Quản lý môn</a>
-                            <a runat="server" href="~/QuanLyDotThi">Quản lý đợt thi</a>
                             <a runat="server" href="~/QuanLyCauHoi">Quản lý câu hỏi</a>
+                            <a runat="server" href="~/QuanLyDe">Quản lý đề</a>
+                            <a runat="server" href="~/QuanLyDotThi">Quản lý đợt thi</a>
+                            <a runat="server" href="~/QuanLyBaiThi">Quản lý bài thi</a>
 			                <a class="float-right" runat="server" href="~/DangNhap">Đăng xuất</a>
                             <%
                             break;

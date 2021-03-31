@@ -7,7 +7,7 @@
 		</div>
 		<div class="card-body">
 			<div class="style-input-group">
-				<asp:TextBox ID="Username" runat="server" AutoCompleteType="Disabled"></asp:TextBox>
+				<asp:TextBox ID="Username" runat="server" AutoCompleteType="Disabled" Text="admin"></asp:TextBox>
 				<span id="span_username"></span>
 				<asp:Label ID="lb_username" AssociatedControlID="Username" runat="server">Tên đăng nhập</asp:Label>
 			</div>

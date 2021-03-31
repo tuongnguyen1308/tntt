@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Quản lý Môn" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="QuanLyMon.aspx.cs" Inherits="tntt.WebForm1" %>
+﻿<%@ Page Title="Quản lý Môn" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="QuanLyMon.aspx.cs" Inherits="tntt.QuanLyMon" %>
 <%@ MasterType VirtualPath="~/Site.Master" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 

@@ -20,13 +20,19 @@
                             %>
                             <a runat="server" href="~/QuanLyGiangVien">Quản lý giảng viên</a><br />
                             <a runat="server" href="~/QuanLyMon">Quản lý môn</a><br />
+                            <a runat="server" href="~/QuanLyCauHoi">Quản lý câu hỏi</a><br />
+                            <a runat="server" href="~/QuanLyDe">Quản lý đề</a><br />
                             <a runat="server" href="~/QuanLyDotThi">Quản lý đợt thi</a><br />
+                            <a runat="server" href="~/QuanLyBaiThi">Quản lý bài thi</a><br />
                             <%
                             break;
                         case 2:
                             %>
                             <a runat="server" href="~/QuanLyMon">Quản lý môn</a><br />
+                            <a runat="server" href="~/QuanLyCauHoi">Quản lý câu hỏi</a><br />
+                            <a runat="server" href="~/QuanLyDe">Quản lý đề</a><br />
                             <a runat="server" href="~/QuanLyDotThi">Quản lý đợt thi</a><br />
+                            <a runat="server" href="~/QuanLyBaiThi">Quản lý bài thi</a><br />
                             <%
                             break;
                         case 3:
